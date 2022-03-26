@@ -1,3 +1,3 @@
-module go-spotify-fav
+module spotify-fav
 
 go 1.18
