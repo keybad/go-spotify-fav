@@ -181,6 +181,9 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	defer func() {
+		_ = r.Close()
+	}()
 
 	var library YourLibrary
 	if err := json.NewDecoder(r).Decode(&library); err != nil {
@@ -191,6 +194,9 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	defer func() {
+		_ = w.Close()
+	}()
 
 	_, _ = w.WriteString(pageBefore)
 
